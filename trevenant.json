@@ -1,6 +1,6 @@
 {
   "name": "Trevenant",
-  "description": "People fear it due to a belief that it devours any who try to cut down trees in its forest, but to the Pokémon it shares its woods with, it’s kind.",
+  "description": "People fear it due to a belief that it devours any who try to cut down trees in its forest, but to the Pokémon it shares its woods with, its kind.",
   "ability": "Natural cure, Frisk",
   "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/709.png",
   "footprint": "https://static.pokemonpets.com/images/monsters-images-800-800/8709-Mega-Trevenant.webp",
@@ -9,8 +9,8 @@
   "subtype": "Elder Tree",
   "weaknesses": "Ghost, Fire, Flying, Dark, Ice",
   "gender": "50% male, 50% female",
-  "weight": 70987.206,
-  "height": 149.86,
+  "weight": 70987,
+  "height": 149,
   "generation": 6,
   "spilversion": "XY BREAKpoint",
   "canEvolve": false,

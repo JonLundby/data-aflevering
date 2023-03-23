@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>CRUD app</title>
+    <title>Pokemon Database</title>
   </head>
   <body>
     <header>
-      <h1>Ceate-Read-Update-Delete</h1>
+      <h1>Pokemon Database</h1>
     </header>
     <main>
       <table id="pokemon-table">
@@ -19,18 +19,15 @@
             <th>Image</th>
             <th>Generation</th>
             <th>Version</th>
-            <th>Height</th>
-            <th>Weight</th>
+            <th>Height (cm)</th>
+            <th>Weight (gram)</th>
             <th>Gender</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- <tr> & <td> insert from js -->
-        </tbody>
       </table>
 
-      <dialog open id="dialog-viewPokemon">
-        <!-- <section id="dialog-grid"> -->
+      <dialog id="dialog-viewPokemon">
+        <!-- <section id="dialog-grid">
           <img id="dialog-image" src="" alt="" />
           <h3 id="dialog-name">Name:</h3>
           <p id="dialog-generation">Generation:</p>
@@ -43,7 +40,8 @@
           <p id="dialog-statsSpeed">Speed:</p>
 
           <button id="dialog-close">Close?</button>
-        <!-- </section> -->
+        </section> -->
+        <button id="dialog-close">Close?</button>
       </dialog>
     </main>
 

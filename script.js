@@ -1,44 +1,63 @@
 "use strict";
 
-console.log("app is running...");
-
 window.addEventListener("load", initApp);
 
 async function initApp() {
   console.log("app initialized...");
 
-  const pokemon = await getPokeMon("trevenant.json");
+  const pokemon = await getPokeMon("/trevenant.json");
   console.log(pokemon);
   showpokemons(pokemon);
-  
+  console.log(pokemon.image);
 }
 
 async function getPokeMon(url) {
   const response = await fetch(url);
   const data = await response.json();
 
-  return data
+  return data;
 }
 
 function showpokemons(pokemon) {
   console.log("showing pokemons...");
-  document.querySelector("#pokemon-table").insertAdjacentHTML("beforeend", /*html*/ `
-    <tr>
-      <td>${pokemon.name}</td>
-      <td><img src="${pokemon.image}"</td>
-      <td>${pokemon.generation}</td>
-      <td>${pokemon.spilversion}</td>
-      <td>${pokemon.height}</td>
-      <td>${pokemon.weight}</td>
-      <td>${pokemon.gender}</td>
-    </tr>
-  `);
+  
+    const pokemonsTable = /*html*/ `
+    <tbody>
+      <tr>
+        <td>${pokemon.name}</td>
+        <td><img src="${pokemon.image}"</td>
+        <td>${pokemon.generation}</td>
+        <td>${pokemon.spilversion}</td>
+        <td>${pokemon.height}</td>
+        <td>${pokemon.weight}</td>
+        <td>${pokemon.gender}</td>
+      </tr>
+    </tbody>
+  `;
+  document.querySelector("#pokemon-table").insertAdjacentHTML("beforeend", pokemonsTable);
 
   document.querySelector("#pokemon-table tbody:last-child").addEventListener("click", viewPokemon);
-  document.querySelector("#dialog-close").addEventListener("click", closeView)
+  document.querySelector("#dialog-close").addEventListener("click", closeView);
 
   function viewPokemon(pokemon) {
     console.log("view pokemon clicked...");
+
+    // const dialogListHTML = /*html*/ `
+    //   <img src="${pokemon.image}">
+    //   <ul>
+    //     <li>Name: ${pokemon.name}</li>
+    //     <li>Name: ${pokemon.generation}</li>
+    //     <li>Name: ${pokemon.spilversion}</li>
+    //     <li>Name: ${pokemon.statsHp}</li>
+    //     <li>Name: ${pokemon.statsAttack}</li>
+    //     <li>Name: ${pokemon.statsDefence}</li>
+    //     <li>Name: ${pokemon.statsSpecialAttack}</li>
+    //     <li>Name: ${pokemon.statsSpecialDefence}</li>
+    //     <li>Name: ${pokemon.statsSpeed}</li>
+    //   </ul>
+    // `;
+
+    //document.querySelector("#dialog-viewPokemon").insertAdjacentHTML("beforeend", dialogListHTML);
 
     document.querySelector("#dialog-image").src = pokemon.image;
     document.querySelector("#dialog-name").textContent = pokemon.name;
