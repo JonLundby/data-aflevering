@@ -33,6 +33,11 @@ img {
     background-color: bisque;
 }
 
+/*--------------View pokemon---------------*/
+button{
+    background-color: rgb(67, 91, 91);
+}
+
 /*--------------Footer---------------*/
 footer {
     text-align: center;
