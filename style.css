@@ -21,8 +21,16 @@ table{
     text-align: left;
 }
 
+td{
+    text-align: left;
+}
+
 img {
     width: 10%;
+}
+
+#pokemon-table tbody tr:hover{
+    background-color: bisque;
 }
 
 /*--------------Footer---------------*/
