@@ -3,7 +3,7 @@
   "description": "People fear it due to a belief that it devours any who try to cut down trees in its forest, but to the Pokémon it shares its woods with, its kind.",
   "ability": "Natural cure, Frisk",
   "image": "https://assets.pokemon.com/assets/cms2/img/pokedex/full/709.png",
-  "footprint": undefined,
+  "footprint": null,
   "dexindex": 709,
   "type": "Ghost, Grass",
   "subtype": "Elder Tree",
