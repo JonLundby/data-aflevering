@@ -8,6 +8,14 @@ async function initApp() {
   const trevenant = await getPokeMon("https://raw.githubusercontent.com/JonLundby/data-aflevering/main/trevenant.json");
   console.log(trevenant);
   showpokemons(trevenant);
+
+  const butterfree = await getPokeMon("https://raw.githubusercontent.com/Hamse-LibaaxMose/Pokemon-data-projekt/main/Pokemon.json");
+  console.log(butterfree);
+  showpokemons(butterfree);
+
+  const butterfree = await getPokeMon("https://raw.githubusercontent.com/Hamse-LibaaxMose/Pokemon-data-projekt/main/Pokemon.json");
+  console.log(butterfree);
+  showpokemons(butterfree);
 }
 
 async function getPokeMon(url) {
@@ -36,43 +44,27 @@ function showpokemons(pokemon) {
   document.querySelector("#pokemon-table").insertAdjacentHTML("beforeend", pokemonsTable);
 
   document.querySelector("#pokemon-table tbody:last-child").addEventListener("click", viewPokemon);
+  document.querySelector("#dialog-close").addEventListener("click", closeView);
 
-  function viewPokemon(pokemon) {
+  function viewPokemon() {
     console.log("view pokemon clicked...");
 
-    const dialogListHTML = /*html*/ `
-      <ul>
-        <img src="${pokemon.image}">
-        <li>Name: ${pokemon.name}</li>
-        <li>Name: ${pokemon.generation}</li>
-        <li>Name: ${pokemon.spilversion}</li>
-        <li>Name: ${pokemon.statsHp}</li>
-        <li>Name: ${pokemon.statsAttack}</li>
-        <li>Name: ${pokemon.statsDefence}</li>
-        <li>Name: ${pokemon.statsSpecialAttack}</li>
-        <li>Name: ${pokemon.statsSpecialDefence}</li>
-        <li>Name: ${pokemon.statsSpeed}</li>
-      </ul>
-    `;
+    document.querySelector("#dialog-image").src = pokemon.image;
+    document.querySelector("#dialog-name").textContent = pokemon.name;
+    document.querySelector("#dialog-generation").textContent = pokemon.generation;
+    document.querySelector("#dialog-spilversion").textContent = pokemon.spilversion;
+    document.querySelector("#dialog-statsHP").textContent = pokemon.statsHp;
+    document.querySelector("#dialog-statsAttack").textContent = pokemon.statsAttack;
+    document.querySelector("#dialog-statsDefence").textContent = pokemon.statsDefence;
+    document.querySelector("#dialog-statsSpecialAttack").textContent = pokemon.statsSpecialAttack;
+    document.querySelector("#dialog-statsSpecialDefence").textContent = pokemon.statsSpecialDefence;
+    document.querySelector("#dialog-statsSpeed").textContent = pokemon.statsSpeed;
+
     document.querySelector("#dialog-viewPokemon").showModal();
-
-    document.querySelector("#dialog-viewPokemon").insertAdjacentHTML("beforeend", dialogListHTML);
-    // document.querySelector("#dialog-close").addEventListener("click", closeView);
-
-    // document.querySelector("#dialog-image").src = pokemon.image;
-    // document.querySelector("#dialog-name").textContent = pokemon.name;
-    // document.querySelector("#dialog-generation").textContent = pokemon.generation;
-    // document.querySelector("#dialog-spilversion").textContent = pokemon.spilversion;
-    // document.querySelector("#dialog-statsHP").textContent = pokemon.statsHp;
-    // document.querySelector("#dialog-statsAttack").textContent = pokemon.statsAttack;
-    // document.querySelector("#dialog-statsDefence").textContent = pokemon.statsDefence;
-    // document.querySelector("#dialog-statsSpecialAttack").textContent = pokemon.statsSpecialAttack;
-    // document.querySelector("#dialog-statsSpecialDefence").textContent = pokemon.statsSpecialDefence;
-    // document.querySelector("#dialog-statsSpeed").textContent = pokemon.statsSpeed;
   }
 
-  // function closeView() {
-  //   console.log("pokemon view closed...");
-  //   document.querySelector("#dialog-viewPokemon").close();
-  // }
+  function closeView() {
+    console.log("pokemon view closed...");
+    document.querySelector("#dialog-viewPokemon").close();
+  }
 }

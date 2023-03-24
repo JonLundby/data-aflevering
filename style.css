@@ -1,6 +1,6 @@
 /*--------------Main---------------*/
 body{
-    background-color: whitesmoke;
+    background-color: palegoldenrod;
 }
 
 header{
@@ -36,6 +36,10 @@ img {
 /*--------------View pokemon---------------*/
 button{
     background-color: rgb(67, 91, 91);
+}
+
+#dialog-grid {
+    display: grid;
 }
 
 /*--------------Footer---------------*/
