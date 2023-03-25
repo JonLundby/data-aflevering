@@ -13,9 +13,9 @@ async function initApp() {
   console.log(butterfree);
   showpokemons(butterfree);
 
-  const butterfree = await getPokeMon("https://raw.githubusercontent.com/Hamse-LibaaxMose/Pokemon-data-projekt/main/Pokemon.json");
-  console.log(butterfree);
-  showpokemons(butterfree);
+  const wattrel = await getPokeMon("https://raw.githubusercontent.com/PalleGregersJensen/Pokemon-projekt/main/data/wattrel.json");
+  console.log(wattrel);
+  showpokemons(wattrel);
 }
 
 async function getPokeMon(url) {
@@ -49,16 +49,16 @@ function showpokemons(pokemon) {
   function viewPokemon() {
     console.log("view pokemon clicked...");
 
-    document.querySelector("#dialog-image").src = pokemon.image;
-    document.querySelector("#dialog-name").textContent = pokemon.name;
-    document.querySelector("#dialog-generation").textContent = pokemon.generation;
-    document.querySelector("#dialog-spilversion").textContent = pokemon.spilversion;
-    document.querySelector("#dialog-statsHP").textContent = pokemon.statsHp;
-    document.querySelector("#dialog-statsAttack").textContent = pokemon.statsAttack;
-    document.querySelector("#dialog-statsDefence").textContent = pokemon.statsDefence;
-    document.querySelector("#dialog-statsSpecialAttack").textContent = pokemon.statsSpecialAttack;
-    document.querySelector("#dialog-statsSpecialDefence").textContent = pokemon.statsSpecialDefence;
-    document.querySelector("#dialog-statsSpeed").textContent = pokemon.statsSpeed;
+    document.querySelector("#dialog-image").src = `${pokemon.image}`;
+    document.querySelector("#dialog-name").textContent = `Name: ${pokemon.name}`;
+    document.querySelector("#dialog-generation").textContent = `Generation: ${pokemon.generation}`;
+    document.querySelector("#dialog-spilversion").textContent = `Version: ${pokemon.spilversion}`;
+    document.querySelector("#dialog-statsHP").textContent = `HP: ${pokemon.statsHp}`;
+    document.querySelector("#dialog-statsAttack").textContent = `Attack: ${pokemon.statsAttack}`;
+    document.querySelector("#dialog-statsDefence").textContent = `Defence ${pokemon.statsDefence}`;
+    document.querySelector("#dialog-statsSpecialAttack").textContent = `Special attack: ${pokemon.statsSpecialAttack}`;
+    document.querySelector("#dialog-statsSpecialDefence").textContent = `Special defence: ${pokemon.statsSpecialDefence}`;
+    document.querySelector("#dialog-statsSpeed").textContent = `Speed: ${pokemon.statsSpeed}`;
 
     document.querySelector("#dialog-viewPokemon").showModal();
   }

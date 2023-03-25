@@ -1,52 +1,76 @@
 /*--------------Main---------------*/
-body{
-    background-color: palegoldenrod;
+body {
+  background-color: rgb(11, 92, 138);
 }
 
-header{
-    background-color: rgb(67, 91, 91);
-    text-align: center;
-    padding: 1em;
-    margin: 5px;
-    width: 100%;
+header {
+  text-align: center;
+  padding: 1em;
+  margin: 5px;
+  width: 100%;
 }
 
 /*--------------Table---------------*/
-table{
-    background-color: rgb(60, 123, 118);
-    border-collapse: collapse;
-    width: 100%;
-    padding: 1em;
-    margin: 5px;
-    text-align: left;
+#pokemon-table {
+  background-color: rgba(129, 165, 238, 0.76);
+  border-collapse: collapse;
+  border: 2px black;
+  border-style: solid;
+  width: 100%;
+  margin: 5px;
+  text-align: left;
 }
 
-td{
-    text-align: left;
+td {
+  text-align: left;
 }
 
 img {
-    width: 10%;
+  width: 20%;
 }
 
-#pokemon-table tbody tr:hover{
-    background-color: bisque;
+#pokemon-table tbody tr:hover {
+  background-color: rgba(11, 91, 138, 0.26);
 }
 
 /*--------------View pokemon---------------*/
-button{
-    background-color: rgb(67, 91, 91);
+.dialog-grid {
+  display: grid;
+  grid-template-areas: "a b";
+  border: 2px solid black;
+  padding: 20px;
+  margin: 10px;
+  background-color: #70a9a1;
 }
 
-#dialog-grid {
-    display: grid;
+#dialog-image {
+  width: 100%;
+}
+
+#grid-dialog-image {
+  width: 75%;
+  background-color: #F9F9ED;
+  border: 15px outset;
+  border-radius: 30%;
+}
+
+#grid-dialog-info {
+  background-color: #F9F9ED;
+  border: 2.5px inset;
+  padding: 20px;
+}
+
+button {
+  background-color: rgb(91, 67, 85);
+  padding: 10px;
+  margin: 20px;
+  width: 75%;
 }
 
 /*--------------Footer---------------*/
 footer {
-    text-align: center;
-    background-color: rgb(67, 91, 91);
-    padding: 0.5em;
-    margin: 5px;
-    width: 100%;
+  text-align: center;
+  padding: 0.5em;
+  margin: 5px;
+  width: 100%;
 }
