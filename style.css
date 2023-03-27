@@ -1,6 +1,7 @@
 /*--------------Main---------------*/
 body {
   background-color: rgb(11, 92, 138);
+  width: 98%;
 }
 
 header {
@@ -18,14 +19,14 @@ header {
   border-style: solid;
   width: 100%;
   margin: 5px;
-  text-align: left;
+  text-align: center;
 }
 
 td {
-  text-align: left;
+  text-align: center;
 }
 
-img {
+td img {
   width: 20%;
 }
 

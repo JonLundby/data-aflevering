@@ -16,6 +16,16 @@ async function initApp() {
   const wattrel = await getPokeMon("https://raw.githubusercontent.com/PalleGregersJensen/Pokemon-projekt/main/data/wattrel.json");
   console.log(wattrel);
   showpokemons(wattrel);
+
+  const groudon = await getPokeMon(
+    "https://raw.githubusercontent.com/OliKirk/Poke-Project-Object/main/data/pok%C3%A9mon.json?token=GHSAT0AAAAAAB6HFM3GYO32IIUDC3EB52NIZA4F3ZA"
+  );
+  console.log(groudon);
+  showpokemons(groudon);
+
+  const rayquaza = await getPokeMon("https://raw.githubusercontent.com/sebbex1337/Pokemon-app/main/rayquaza.json");
+  console.log(rayquaza);
+  showpokemons(rayquaza);
 }
 
 async function getPokeMon(url) {
