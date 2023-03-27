@@ -5,30 +5,33 @@ window.addEventListener("load", initApp);
 async function initApp() {
   console.log("app initialized...");
 
-  const trevenant = await getPokeMon("https://raw.githubusercontent.com/JonLundby/data-aflevering/main/trevenant.json");
-  console.log(trevenant);
-  showpokemons(trevenant);
+  const allPokemons = await getPokeMons("https://cederdorff.github.io/dat-js/05-data/pokemons.json");
 
-  const butterfree = await getPokeMon("https://raw.githubusercontent.com/Hamse-LibaaxMose/Pokemon-data-projekt/main/Pokemon.json");
-  console.log(butterfree);
-  showpokemons(butterfree);
+  allPokemons.forEach(showpokemons);
+  // const trevenant = await getPokeMon("https://raw.githubusercontent.com/JonLundby/data-aflevering/main/trevenant.json");
+  // console.log(trevenant);
+  // showpokemons(trevenant);
 
-  const wattrel = await getPokeMon("https://raw.githubusercontent.com/PalleGregersJensen/Pokemon-projekt/main/data/wattrel.json");
-  console.log(wattrel);
-  showpokemons(wattrel);
+  // const butterfree = await getPokeMon("https://raw.githubusercontent.com/Hamse-LibaaxMose/Pokemon-data-projekt/main/Pokemon.json");
+  // console.log(butterfree);
+  // showpokemons(butterfree);
 
-  const groudon = await getPokeMon(
-    "https://raw.githubusercontent.com/OliKirk/Poke-Project-Object/main/data/pok%C3%A9mon.json?token=GHSAT0AAAAAAB6HFM3GYO32IIUDC3EB52NIZA4F3ZA"
-  );
-  console.log(groudon);
-  showpokemons(groudon);
+  // const wattrel = await getPokeMon("https://raw.githubusercontent.com/PalleGregersJensen/Pokemon-projekt/main/data/wattrel.json");
+  // console.log(wattrel);
+  // showpokemons(wattrel);
 
-  const rayquaza = await getPokeMon("https://raw.githubusercontent.com/sebbex1337/Pokemon-app/main/rayquaza.json");
-  console.log(rayquaza);
-  showpokemons(rayquaza);
+  // const groudon = await getPokeMon(
+  //   "https://raw.githubusercontent.com/OliKirk/Poke-Project-Object/main/data/pok%C3%A9mon.json?token=GHSAT0AAAAAAB6HFM3GYO32IIUDC3EB52NIZA4F3ZA"
+  // );
+  // console.log(groudon);
+  // showpokemons(groudon);
+
+  // const rayquaza = await getPokeMon("https://raw.githubusercontent.com/sebbex1337/Pokemon-app/main/rayquaza.json");
+  // console.log(rayquaza);
+  // showpokemons(rayquaza);
 }
 
-async function getPokeMon(url) {
+async function getPokeMons(url) {
   const response = await fetch(url);
   const data = await response.json();
 
@@ -63,7 +66,7 @@ function showpokemons(pokemon) {
     document.querySelector("#dialog-name").textContent = `Name: ${pokemon.name}`;
     document.querySelector("#dialog-generation").textContent = `Generation: ${pokemon.generation}`;
     document.querySelector("#dialog-spilversion").textContent = `Version: ${pokemon.spilversion}`;
-    document.querySelector("#dialog-statsHP").textContent = `HP: ${pokemon.statsHp}`;
+    document.querySelector("#dialog-statsHP").textContent = `HP: ${pokemon.statsHP}`;
     document.querySelector("#dialog-statsAttack").textContent = `Attack: ${pokemon.statsAttack}`;
     document.querySelector("#dialog-statsDefence").textContent = `Defence ${pokemon.statsDefence}`;
     document.querySelector("#dialog-statsSpecialAttack").textContent = `Special attack: ${pokemon.statsSpecialAttack}`;
