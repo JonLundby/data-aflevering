@@ -2,25 +2,30 @@
 body {
   user-select: none;
   background-color: rgb(11, 92, 138);
-  width: 98%;
 }
 
 header {
   text-align: center;
   padding: 1em;
   margin: 5px;
-  width: 100%;
 }
 
 /*--------------Table---------------*/
 #pokemon-table {
-  background-color: rgba(129, 165, 238, 0.76);
+  /* position: absolute; */
+  background-color: rgb(129, 165, 238);
   border-collapse: collapse;
   border: 2px black;
   border-style: solid;
   width: 100%;
   margin: 5px;
   text-align: center;
+}
+
+thead {
+  background-color: rgba(129, 165, 238, 0.845);
+  position: sticky;
+  top: 0;
 }
 
 td {
@@ -35,7 +40,12 @@ td img {
   background-color: rgba(11, 91, 138, 0.26);
 }
 
-/*--------------View pokemon---------------*/
+/*--------------View pokemon (dialog/modal)---------------*/
+#dialog-viewPokemon {
+  max-width: 90%;
+  max-height: 90%;
+}
+
 .dialog-grid {
   display: grid;
   grid-template-areas: "a b";
@@ -50,7 +60,7 @@ td img {
 }
 
 #grid-dialog-image {
-  width: 75%;
+  /* width: 75%; */
   background-color: #F9F9ED;
   border: 15px outset;
   border-radius: 30%;
@@ -74,5 +84,4 @@ footer {
   text-align: center;
   padding: 0.5em;
   margin: 5px;
-  width: 100%;
 }

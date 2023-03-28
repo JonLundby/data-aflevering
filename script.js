@@ -7,7 +7,12 @@ async function initApp() {
 
   const allPokemons = await getPokeMons("https://cederdorff.github.io/dat-js/05-data/pokemons.json");
 
-  allPokemons.forEach(showpokemons);
+  for (const element of allPokemons) {
+    showpokemons(element);
+  }
+  
+  //allPokemons.forEach(showpokemons);
+  
   // const trevenant = await getPokeMon("https://raw.githubusercontent.com/JonLundby/data-aflevering/main/trevenant.json");
   // console.log(trevenant);
   // showpokemons(trevenant);
@@ -62,10 +67,17 @@ function showpokemons(pokemon) {
   function viewPokemon() {
     console.log("view pokemon clicked...");
 
+    if (pokemon.subtype === null || pokemon.subtype === undefined || pokemon.subtype === "undefined" || pokemon.subtype === "") {
+      pokemon.subtype = "none";
+    }
+
     document.querySelector("#dialog-image").src = `${pokemon.image}`;
     document.querySelector("#dialog-name").textContent = `Name: ${pokemon.name}`;
     document.querySelector("#dialog-generation").textContent = `Generation: ${pokemon.generation}`;
     document.querySelector("#dialog-spilversion").textContent = `Version: ${pokemon.spilversion}`;
+    document.querySelector("#dialog-description").textContent = `Description: ${pokemon.description}`;
+    document.querySelector("#dialog-type").textContent = `Type: ${pokemon.type}`;
+    document.querySelector("#dialog-subtype").textContent = `Subtype: ${pokemon.subtype}`;
     document.querySelector("#dialog-statsHP").textContent = `HP: ${pokemon.statsHP}`;
     document.querySelector("#dialog-statsAttack").textContent = `Attack: ${pokemon.statsAttack}`;
     document.querySelector("#dialog-statsDefence").textContent = `Defence ${pokemon.statsDefence}`;
