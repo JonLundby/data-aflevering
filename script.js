@@ -48,6 +48,7 @@ function showpokemons(pokemon) {
 
   correctGeneration(pokemon);
   correctSpilversion(pokemon);
+  correctWeight(pokemon);
 
   const pokemonsTable = /*html*/ `
     <tbody>
@@ -99,16 +100,20 @@ function showpokemons(pokemon) {
     console.log("pokemon view closed...");
     document.querySelector("#dialog-viewPokemon").close();
   }
+}
 
-  function correctSpilversion(pokemon) {
-    if (pokemon.spilversion == "") {
-      pokemon.spilversion = "Unkown";
-    }
+function correctSpilversion(pokemon) {
+  if (pokemon.spilversion == "") {
+    pokemon.spilversion = "Unkown";
   }
+}
 
-  function correctGeneration(pokemon) {
-    if (pokemon.generation == "" || pokemon.generation === undefined || pokemon.generation === "undefined" || pokemon.generation === null) {
-      pokemon.generation = "Unkown";
-    }
+function correctGeneration(pokemon) {
+  if (pokemon.generation == "" || pokemon.generation === undefined || pokemon.generation === "undefined" || pokemon.generation === null) {
+    pokemon.generation = "Unkown";
   }
+}
+
+function correctWeight(pokemon) {
+  pokemon.weight /= 1000;
 }
