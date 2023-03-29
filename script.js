@@ -10,9 +10,9 @@ async function initApp() {
   for (const element of allPokemons) {
     showpokemons(element);
   }
-  
+
   //allPokemons.forEach(showpokemons);
-  
+
   // const trevenant = await getPokeMon("https://raw.githubusercontent.com/JonLundby/data-aflevering/main/trevenant.json");
   // console.log(trevenant);
   // showpokemons(trevenant);
@@ -46,9 +46,13 @@ async function getPokeMons(url) {
 function showpokemons(pokemon) {
   console.log("showing pokemons...");
 
+  correctGeneration(pokemon);
+  correctSpilversion(pokemon);
+
   const pokemonsTable = /*html*/ `
     <tbody>
       <tr>
+        <td>${pokemon.dexindex.toString().padStart(4, "0")}</td>
         <td>${pokemon.name}</td>
         <td><img src="${pokemon.image}"</td>
         <td>${pokemon.generation}</td>
@@ -59,6 +63,7 @@ function showpokemons(pokemon) {
       </tr>
     </tbody>
   `;
+
   document.querySelector("#pokemon-table").insertAdjacentHTML("beforeend", pokemonsTable);
 
   document.querySelector("#pokemon-table tbody:last-child").addEventListener("click", viewPokemon);
@@ -70,6 +75,8 @@ function showpokemons(pokemon) {
     if (pokemon.subtype === null || pokemon.subtype === undefined || pokemon.subtype === "undefined" || pokemon.subtype === "") {
       pokemon.subtype = "none";
     }
+
+    correctSpilversion(pokemon);
 
     document.querySelector("#dialog-image").src = `${pokemon.image}`;
     document.querySelector("#dialog-name").textContent = `Name: ${pokemon.name}`;
@@ -91,5 +98,17 @@ function showpokemons(pokemon) {
   function closeView() {
     console.log("pokemon view closed...");
     document.querySelector("#dialog-viewPokemon").close();
+  }
+
+  function correctSpilversion(pokemon) {
+    if (pokemon.spilversion == "") {
+      pokemon.spilversion = "Unkown";
+    }
+  }
+
+  function correctGeneration(pokemon) {
+    if (pokemon.generation == "" || pokemon.generation === undefined || pokemon.generation === "undefined" || pokemon.generation === null) {
+      pokemon.generation = "Unkown";
+    }
   }
 }
