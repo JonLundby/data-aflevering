@@ -9,13 +9,11 @@ async function initApp() {
 
   allPokemons.sort(compareDexindex);
   //allPokemons.sort(compareName);
-
-  console.log(allPokemons);
   for (const element of allPokemons) {
     showpokemons(element);
   }
 
-  // ////SORTING STUFF!!!!
+  //***************SORTING STUFF***************\\
   // document.querySelector("#sort-allPokemons").addEventListener("change", sortChoice);
 
   // function sortChoice() {
@@ -26,21 +24,27 @@ async function initApp() {
 
   // function sortPokemons(sortSelection) {
   //   console.log("sorting function called");
-  //   const previousPokemons = document.querySelector("#table-content");
+  //   const previousPokemons = document.getElementById("#table-content");
 
   //   if (sortSelection === "dexindex") {
-  //     previousPokemons.remove();
+  //     console.log(sortSelection + " sorting selected");
+  //     if (previousPokemons) {
+  //       previousPokemons.remove();
+  //     }
   //     for (const element of allPokemons.sort(compareDexindex)) {
   //       showpokemons(element);
   //     }
   //   } else if (sortSelection === "name") {
-  //     previousPokemons.remove();
+  //     console.log(sortSelection + " sorting selected");
+  //     if (previousPokemons) {
+  //       previousPokemons.remove();
+  //     }
   //     for (const element of allPokemons.sort(compareName)) {
   //       showpokemons(element);
   //     }
   //   }
   // }
-  ////SORTING STUFF!!!!
+  //***************SORTING STUFF***************\\
 
   //allPokemons.forEach(showpokemons);
 
@@ -94,7 +98,7 @@ function showpokemons(pokemon) {
         <td>${pokemon.weight}</td>
         <td>${pokemon.gender}</td>
       </tr>
-    </tbody>
+
   `;
 
   document.querySelector("#pokemon-table").insertAdjacentHTML("beforeend", pokemonsTable);
@@ -110,6 +114,7 @@ function showpokemons(pokemon) {
     }
 
     correctSpilversion(pokemon);
+    correctCanEvolve(pokemon);
 
     document.querySelector("#dialog-image").src = `${pokemon.image}`;
     document.querySelector("#dialog-name").textContent = `Name: ${pokemon.name}`;
@@ -118,6 +123,10 @@ function showpokemons(pokemon) {
     document.querySelector("#dialog-description").textContent = `Description: ${pokemon.description}`;
     document.querySelector("#dialog-type").textContent = `Type: ${pokemon.type}`;
     document.querySelector("#dialog-subtype").textContent = `Subtype: ${pokemon.subtype}`;
+    document.querySelector("#dialog-canEvolve").textContent = `Evolve: ${pokemon.canEvolve}`;
+    document.querySelector("#dialog-weaknesses").textContent = `Weaknesses: ${pokemon.weaknesses}`;
+    document.querySelector("#dialog-ability").textContent = `Ability: ${pokemon.ability}`;
+    document.querySelector("#dialog-footprint-image").src = `${pokemon.footprint}`;
     document.querySelector("#dialog-statsHP").textContent = `HP: ${pokemon.statsHP}`;
     document.querySelector("#dialog-statsAttack").textContent = `Attack: ${pokemon.statsAttack}`;
     document.querySelector("#dialog-statsDefence").textContent = `Defence ${pokemon.statsDefence}`;
@@ -148,6 +157,14 @@ function correctGeneration(pokemon) {
 
 function correctWeight(pokemon) {
   pokemon.weight /= 1000;
+}
+
+function correctCanEvolve(pokemon) {
+  if (pokemon.canEvolve) {
+    pokemon.canEvolve = "Yes, I can evolve";
+  } else {
+    pokemon.canEvolve = "No, I can not evolve";
+  }
 }
 
 function compareDexindex(a, b) {
