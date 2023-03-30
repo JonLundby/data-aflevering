@@ -7,12 +7,44 @@ async function initApp() {
 
   const allPokemons = await getPokeMons("https://cederdorff.github.io/dat-js/05-data/pokemons.json");
 
+  allPokemons.sort(compareDexindex);
+  //allPokemons.sort(compareName);
+
+  console.log(allPokemons);
   for (const element of allPokemons) {
     showpokemons(element);
   }
 
+  // ////SORTING STUFF!!!!
+  // document.querySelector("#sort-allPokemons").addEventListener("change", sortChoice);
+
+  // function sortChoice() {
+  //   const sortSelection = this.value;
+
+  //   sortPokemons(sortSelection);
+  // }
+
+  // function sortPokemons(sortSelection) {
+  //   console.log("sorting function called");
+  //   const previousPokemons = document.querySelector("#table-content");
+
+  //   if (sortSelection === "dexindex") {
+  //     previousPokemons.remove();
+  //     for (const element of allPokemons.sort(compareDexindex)) {
+  //       showpokemons(element);
+  //     }
+  //   } else if (sortSelection === "name") {
+  //     previousPokemons.remove();
+  //     for (const element of allPokemons.sort(compareName)) {
+  //       showpokemons(element);
+  //     }
+  //   }
+  // }
+  ////SORTING STUFF!!!!
+
   //allPokemons.forEach(showpokemons);
 
+  //hardcoded fetch of pokemons
   // const trevenant = await getPokeMon("https://raw.githubusercontent.com/JonLundby/data-aflevering/main/trevenant.json");
   // console.log(trevenant);
   // showpokemons(trevenant);
@@ -44,14 +76,14 @@ async function getPokeMons(url) {
 }
 
 function showpokemons(pokemon) {
-  console.log("showing pokemons...");
+  //console.log("showing pokemons...");
 
   correctGeneration(pokemon);
   correctSpilversion(pokemon);
   correctWeight(pokemon);
 
   const pokemonsTable = /*html*/ `
-    <tbody>
+    <tbody id="table-content">
       <tr>
         <td>${pokemon.dexindex.toString().padStart(4, "0")}</td>
         <td>${pokemon.name}</td>
@@ -116,4 +148,12 @@ function correctGeneration(pokemon) {
 
 function correctWeight(pokemon) {
   pokemon.weight /= 1000;
+}
+
+function compareDexindex(a, b) {
+  return a.dexindex - b.dexindex;
+}
+
+function compareName(a, b) {
+  return a.name.localeCompare(b.name);
 }

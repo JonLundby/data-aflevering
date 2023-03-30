@@ -59,17 +59,21 @@ td img {
   width: 100%;
 }
 
-#grid-dialog-image {
+#dialog-image-container {
   /* width: 75%; */
-  background-color: #F9F9ED;
+  background-color: #f9f9ed;
   border: 15px outset;
   border-radius: 30%;
 }
 
 #grid-dialog-info {
-  background-color: #F9F9ED;
+  background-color: #f9f9ed;
   border: 2.5px inset;
   padding: 20px;
+}
+
+#stats-container {
+  line-height: 50%;
 }
 
 button {

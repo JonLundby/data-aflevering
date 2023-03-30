@@ -13,6 +13,14 @@
       <h1>Pokemon Database</h1>
     </header>
     <main>
+      <label for="sort-allPokemons"
+        >Sort:
+        <select name="sort" id="sort-allPokemons">
+          <option value="dexindex">sort by dex-index</option>
+          <option value="name">sort by name</option>
+        </select>
+      </label>
+
       <table id="pokemon-table">
         <thead>
           <tr>
@@ -30,7 +38,7 @@
 
       <dialog id="dialog-viewPokemon">
         <section class="dialog-grid">
-          <div id="grid-dialog-image">
+          <div id="dialog-image-container">
             <img id="dialog-image" src="" alt="" />
           </div>
           <div id="grid-dialog-info">
@@ -42,12 +50,14 @@
             <p id="dialog-subtype">Subtype:</p>
             <hr />
             <h4>Stats</h4>
-            <p id="dialog-statsHP">HP:</p>
-            <p id="dialog-statsAttack">Attack:</p>
-            <p id="dialog-statsDefence">Defence:</p>
-            <p id="dialog-statsSpecialAttack">special attack:</p>
-            <p id="dialog-statsSpecialDefence">Special Defence:</p>
-            <p id="dialog-statsSpeed">Speed:</p>
+            <article id="stats-container">
+              <p id="dialog-statsHP">HP:</p>
+              <p id="dialog-statsAttack">Attack:</p>
+              <p id="dialog-statsDefence">Defence:</p>
+              <p id="dialog-statsSpecialAttack">special attack:</p>
+              <p id="dialog-statsSpecialDefence">Special Defence:</p>
+              <p id="dialog-statsSpeed">Speed:</p>
+            </article>
             <button id="dialog-close">Close?</button>
           </div>
         </section>
